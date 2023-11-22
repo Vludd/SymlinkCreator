@@ -1,0 +1,42 @@
+﻿<Window x:Class="SymlinkCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SymlinkCreator"
+        mc:Ignorable="d"
+        Title="Symlink Creator"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Height="350" Width="400">
+    <Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <GroupBox x:Name="group1" Header="From:" Grid.Row="0">
+                <StackPanel Margin="5">
+                    <StackPanel>
+                        <RadioButton x:Name="fromSourceOption1" Content="File" IsChecked="True"/>
+                        <RadioButton x:Name="fromSourceOption2" Content="Directory"/>
+                    </StackPanel>
+                    <TextBlock x:Name="sourceDisplay" TextTrimming="WordEllipsis" Margin="5" Text="C:\" TextAlignment="Center"/>
+                    <Button x:Name="openFromSource" Width="80" Height="25" Content="Select" Click="openFromSource_Click"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox x:Name="group2" Header="To:" Grid.Row="1">
+                <StackPanel Margin="5">
+                    <DockPanel>
+                        <TextBlock Text="Link name: "/>
+                        <TextBox x:Name="linkNameTextBox" MaxLength="32"/>
+                    </DockPanel>
+                    <TextBlock x:Name="savePathDisplay" TextTrimming="WordEllipsis" Margin="5" Text="C:\TestLink" TextAlignment="Center"/>
+                    <Button x:Name="openToSource" Width="80" Height="25" Content="Select" Click="openToSource_Click"/>
+                </StackPanel>
+            </GroupBox>
+            <Button x:Name="createLink" Content="Create" Grid.Row="3" Width="100" Height="30" Click="createLink_Click"/>
+        </Grid>
+    </Grid>
+</Window>
